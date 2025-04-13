@@ -10,11 +10,14 @@ const Dashboard = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get("/api/tasks");
-      setTasks(response.data);
+      const data = Array.isArray(response.data) ? response.data : []; // Ensure data is an array
+      setTasks(data);
       setLoading(false);
     } catch (err) {
-      console.error("Error fetching tasks:", err);
+      console.log("Error fetching tasks1:", err); // Consolidated error logging
+      console.error("Error fetching tasks:", err); // Consolidated error logging
       setError("Failed to fetch dashboard data.");
+      setTasks([]); // Set tasks to an empty array on error
       setLoading(false);
     }
   };
