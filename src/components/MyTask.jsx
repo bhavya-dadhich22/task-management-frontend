@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import TaskTable from "./TaskTable";
-import axios from "axios";
+import api from '../api/axios';
 // import '../styles/App.css';
 import "../styles/Task.css";
 import Snackbar from "./Snackbar";
@@ -27,7 +27,7 @@ const MyTask = () => {
   // methods
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("/api/tasks");
+      const response = await api.get("/api/tasks");
       setTasks(response.data); // Set tasks data when successful
       setLoading(false); // Stop loading once the data is fetched
     } catch (err) {

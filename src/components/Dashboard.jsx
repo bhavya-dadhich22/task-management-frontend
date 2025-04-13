@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import api from '../api/axios';
 import "../styles/Dashboard.css";
-import axios from "axios";
+
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -9,7 +10,7 @@ const Dashboard = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("/api/tasks");
+      const response = await api.get("/api/tasks");
       const data = Array.isArray(response.data) ? response.data : []; // Ensure data is an array
       setTasks(data);
       setLoading(false);
