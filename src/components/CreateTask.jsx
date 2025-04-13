@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from '../api/axios';
 import { useNavigate } from "react-router-dom";
 import "../styles/CreateTask.css";
 
@@ -28,7 +28,7 @@ const CreateTask = () => {
     e.preventDefault();
     console.log('data-task:', task);
     try {
-      await axios.post("/api/tasks", task);
+      await api.post("/api/tasks", task);
       // alert("Task created successfully!");
       navigate("/tasks", { state: { isCreated: true } });
       // Redirect or clear form here if necessary

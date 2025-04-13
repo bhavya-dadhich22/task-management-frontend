@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 import { formatDateToMMDDYYYY } from "../utils";
 import "../styles/TaskTable.css";
 import ConfirmModal from "./ConfirmModal";
@@ -19,7 +19,7 @@ const TaskTable = ({ tasks, onTaskDeleted }) => {
     console.log("Confirmed!");
 
     setIsModalOpen(false);
-    axios.delete(`/api/tasks/${selectedId}`).then(() => {
+    api.delete(`/api/tasks/${selectedId}`).then(() => {
       if (onTaskDeleted) {
         onTaskDeleted();
       }
@@ -33,16 +33,6 @@ const TaskTable = ({ tasks, onTaskDeleted }) => {
   const handleDelete = (id) => {
     setSelectedId(id);
     openConfirmModal("Are you sure you want to delete this item?");
-
-    // if (window.confirm("Are you sure you want to delete this task?")) {
-    //   // Delete task from API
-    //   axios.delete(`/api/tasks/${id}`).then(() => {
-    //     if (onTaskDeleted) {
-    //       onTaskDeleted();
-    //     }
-    //     // alert('Task deleted');
-    //   });
-    // }
   };
 
   return (
