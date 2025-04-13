@@ -23,14 +23,14 @@ const Dashboard = () => {
     fetchTasks();
   }, []);
 
-  const pendingCount = tasks.filter((task) => task.status === "pending").length;
-  const inProgressCount = tasks.filter(
+  const pendingCount = tasks?.filter((task) => task.status === "pending").length;
+  const inProgressCount = tasks?.filter(
     (task) => task.status === "in-progress"
   ).length;
-  const completedCount = tasks.filter(
+  const completedCount = tasks?.filter(
     (task) => task.status === "completed"
   ).length;
-  const totalExpenses = tasks.reduce(
+  const totalExpenses = tasks?.reduce(
     (sum, task) => sum + (task.actualExpendMoney || 0),
     0
   );
