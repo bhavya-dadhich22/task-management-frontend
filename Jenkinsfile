@@ -15,13 +15,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js dependencies using npm
-                sh 'npm install'
+                sh 'yarn install'
             }
         }
         stage('Build Application') {
             steps {
                 // Build the React app
-                sh 'npm run build'
+                sh 'yarn build'
             }
         }
         stage('Deploy to GitHub') {
