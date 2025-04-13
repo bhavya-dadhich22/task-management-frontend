@@ -1,0 +1,24 @@
+.App {
+    display: flex;
+    font-family: Arial, sans-serif;
+  }
+  
+  .main-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  
+  
+  /* .mt16 {
+    margin-top: 16;
+  }
+  .ml16 {
+    margin-left: 50;
+  }
+  .mr16 {
+    margin-right: 16;
+  }
+  .mb16 {
+    margin-bottom: 16;
+  } */
